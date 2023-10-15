@@ -3,16 +3,21 @@ package edu.hw1;
 import java.util.Arrays;
 
 public class Task6 {
+    private static final int END_NUMBER = 6174;
+
+    @SuppressWarnings("MagicNumber")
     public int countK(int number) {
-        if (number == 6174) {
+        if (number == END_NUMBER) {
             return 0;
         }
+
+        int num = number;
 
         int[] digits = new int[4];
 
         for (int i = 0; i < 4; i++) {
-            digits[i] = number % 10;
-            number /= 10;
+            digits[i] = num % 10;
+            num /= 10;
         }
 
         Arrays.sort(digits);

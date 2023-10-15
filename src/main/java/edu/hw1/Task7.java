@@ -1,9 +1,11 @@
 package edu.hw1;
 
 public class Task7 {
+    private static final int MAX_INTEGER_BIT = 32;
+
     private int findLargestSetBit(int number) {
         int result = -1;
-        for (int i = 0; i < 32; i++) {
+        for (int i = 0; i < MAX_INTEGER_BIT; i++) {
             if ((number & (1 << i)) != 0) {
                 result = i;
             }
@@ -18,10 +20,10 @@ public class Task7 {
         }
 
         int largestBit = findLargestSetBit(number);
-        shift %= (largestBit + 1);
+        int localShift = shift % (largestBit + 1);
 
         int shiftMask = 0;
-        for (int i = largestBit; i > largestBit - shift; i--) {
+        for (int i = largestBit; i > largestBit - localShift; i--) {
             shiftMask |= (1 << i);
         }
 
@@ -30,7 +32,7 @@ public class Task7 {
             bigMask |= (1 << i);
         }
 
-        return ((number << shift) & bigMask) | ((number & shiftMask) >> (largestBit - shift + 1));
+        return ((number << localShift) & bigMask) | ((number & shiftMask) >> (largestBit - localShift + 1));
     }
 
     public int rotateRight(int number, int shift) {
@@ -39,13 +41,13 @@ public class Task7 {
         }
 
         int largestBit = findLargestSetBit(number);
-        shift %= (largestBit + 1);
+        int localShift = shift % (largestBit + 1);
 
         int mask = 0;
-        for (int i = 0; i < shift; i++) {
+        for (int i = 0; i < localShift; i++) {
             mask |= (1 << i);
         }
 
-        return (number >> shift) | ((number & mask) << (largestBit - shift + 1));
+        return (number >> localShift) | ((number & mask) << (largestBit - localShift + 1));
     }
 }

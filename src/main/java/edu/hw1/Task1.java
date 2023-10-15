@@ -1,13 +1,19 @@
 package edu.hw1;
 
-public class Task1 {
+public final class Task1 {
+    private Task1() {}
+
+    private final static int MAX_SECONDS = 60;
+
     public static int minutesToSeconds(String length) {
         String[] parts = length.split(":");
 
-        if (parts.length > 2)
+        if (parts.length > 2) {
             return -1;
+        }
 
-        int minutes, seconds;
+        int minutes;
+        int seconds;
 
         try {
             minutes = Integer.parseInt(parts[0]);
@@ -16,7 +22,10 @@ public class Task1 {
             return -1;
         }
 
-        if (seconds >= 60 || seconds < 0 || minutes < 0) return -1;
-        return minutes * 60 + seconds;
+        if (seconds >= MAX_SECONDS || seconds < 0 || minutes < 0) {
+            return -1;
+        }
+
+        return minutes * MAX_SECONDS + seconds;
     }
 }
