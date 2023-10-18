@@ -10,16 +10,16 @@ public class Task7Test {
         Task7 task = new Task7();
 
         // 1011 >> 1 -> 1101
-        assertEquals(0b1101, task.rotateRight(0b1011, 1));
+        assertEquals(13, task.rotateRight(11, 1));
 
         // 1000 >> 1 -> 0100
-        assertEquals(0b0100, task.rotateRight(0b1000, 1));
+        assertEquals(4, task.rotateRight(8, 1));
 
         // 101101 >> 2 -> 011011
-        assertEquals(0b011011, task.rotateRight(0b101101, 2));
+        assertEquals(27, task.rotateRight(45, 2));
 
         // 10 >> 10 -> 10
-        assertEquals(0b10, task.rotateRight(0b10, 10));
+        assertEquals(2, task.rotateRight(2, 10));
     }
 
     @Test
@@ -27,15 +27,15 @@ public class Task7Test {
         Task7 task = new Task7();
 
         // 10000 << 1 -> 00001
-        assertEquals(0b00001, task.rotateLeft(0b10000, 1));
+        assertEquals(1, task.rotateLeft(16, 1));
 
         // 10001 << 2 -> 00110
-        assertEquals(0b00110, task.rotateLeft(0b10001, 2));
+        assertEquals(6, task.rotateLeft(17, 2));
 
         // 101110 << 3 -> 110101
-        assertEquals(0b110101, task.rotateLeft(0b101110, 3));
+        assertEquals(53, task.rotateLeft(46, 3));
 
         // 10 << 11 -> 01
-        assertEquals(0b01, task.rotateLeft(0b10, 11));
+        assertEquals(1, task.rotateLeft(2, 11));
     }
 }
