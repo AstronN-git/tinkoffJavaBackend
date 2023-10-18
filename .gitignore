@@ -1,2 +1,4 @@
 .gitignore
-mvnw!/target/
+mvnw
+/target/
+/.idea/
